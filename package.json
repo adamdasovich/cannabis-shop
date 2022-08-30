@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamdasovich/proshop.git"
+  },
+  "author": "Adam Dasovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamdasovich/proshop/issues"
+  },
+  "homepage": "https://github.com/adamdasovich/proshop#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
