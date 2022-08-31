@@ -15,9 +15,8 @@ const HomeScreen = () => {
 	useEffect(() => {
 		const fetchProducts = async () => {
 			const { data } = await api.get('/api/products');
-			const { products } = data;
-			console.log(products);
-			setProducts(products);
+			console.log(data);
+			setProducts(data);
 		}
 		fetchProducts();
 	}, []);
