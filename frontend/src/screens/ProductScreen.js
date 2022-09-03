@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: "http://localhost:5000",
+	baseURL: "http://localhost:5000/api/products"
 });
 
 
@@ -17,7 +17,7 @@ const ProductScreen = () => {
 
 	useEffect(() => {
 		const fetchProduct = async () => {
-			const { data } = await api.get(`/api/products/${id}`)
+			const { data } = await api.get(`/${id}`)
 			setProduct(data)
 		}
 		fetchProduct()
