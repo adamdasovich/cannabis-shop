@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CART_ADD_ITEM } from '../constants/cartConstants'
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/cartConstants'
 
 const api = axios.create({
 	baseURL: "http://localhost:5000/api/products",
@@ -26,6 +26,15 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 		console.log(error)
 	}
 
+}
+
+export const removeFromCart = (id) => (dispatch, getState) => {
+	dispatch({
+		type: CART_REMOVE_ITEM,
+		payload: id,
+	})
+
+	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 
 
