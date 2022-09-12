@@ -5,8 +5,9 @@ import { Form, Button, Row, Col, FormGroup } from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { login } from '../actions/userActions'
-import { useParams, useSearchParams, useNavigate } from 'react-router-dom'
-import FormContainer from '../components/FormContianer'
+import { useSearchParams, useNavigate } from 'react-router-dom'
+import FormContainer from '../components/FormContainer'
+
 
 const LoginScreen = () => {
 
@@ -19,11 +20,11 @@ const LoginScreen = () => {
 
 	const navigate = useNavigate()
 	const [searchParams] = useSearchParams()
-	const redirect = Number(searchParams.get('redirect'))
+	const redirect = searchParams.get('redirect')
 
 	useEffect(() => {
 		if (userInfo) {
-			navigate(redirect)
+			navigate(redirect || '/')
 		}
 	}, [userInfo, navigate, redirect])
 
