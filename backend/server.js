@@ -28,9 +28,9 @@ app.use(errorHandler)
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static(path.join(__dirname, 'frontend/build')));
+}
 
-
-	const PORT = process.env.PORT || 5000;
-	app.listen(PORT, () => {
-		console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold);
-	})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+	console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold);
+})
