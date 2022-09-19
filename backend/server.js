@@ -24,12 +24,13 @@ app.use('/api/users', userRoutes);
 app.use(notFound)
 
 app.use(errorHandler)
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+	// Set static folder
+	app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-app.get('/', (req, res) => {
-	res.send('API is running');
-})
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-	console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold);
-})
+	const PORT = process.env.PORT || 5000;
+	app.listen(PORT, () => {
+		console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}`.yellow.bold);
+	})
